@@ -102,15 +102,6 @@ app.delete('/delete-entry/:id', async (req, res) => {
   }
 });
 
-// Handle favicon.ico requests
-app.get('/favicon.ico', (req, res) => res.status(204));
-
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, 'Frontend', 'build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'build', 'index.html'));
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
